@@ -188,8 +188,7 @@ const LoRaWANBand_t EU433 = {
   .txParamSupported = false,
   .txFreqs = {
     { .idx = 0, .freq = 4331750, .drMin = 0, .drMax = 5, .dr = 3 },
-    { .idx = 1, .freq = 4333750, .drMin = 0, .drMax = 5, .dr = 3 },
-    { .idx = 2, .freq = 4335750, .drMin = 0, .drMax = 5, .dr = 3 },
+    // shit
   },
   .numTxSpans = 0,
   .txSpans = {
