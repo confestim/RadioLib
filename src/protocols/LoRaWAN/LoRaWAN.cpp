@@ -1455,16 +1455,16 @@ int16_t LoRaWANNode::transmitUplink(const LoRaWANChannel_t* chnl, uint8_t* in, u
   // sleep for the duration of the transmission
   this->sleepDelay(toa, false);
   RadioLibTime_t txEnd = mod->hal->millis();
-
-  // wait for an additional transmission duration as Tx timeout period
+  
+  // very shitty fix for sf12 setting where we timeout before IRQ is set
+  RadioLibTime_t txTimeout = (toa > 1000) ? (toa / 2) : this->scanGuard;
   while(!mod->hal->digitalRead(mod->getIrq())) {
-    // yield for multi-threaded platforms
     mod->hal->yield();
-
-    if(mod->hal->millis() > txEnd + this->scanGuard) {
+    if(mod->hal->millis() > txEnd + txTimeout) {
       return(RADIOLIB_ERR_TX_TIMEOUT);
     }
   }
+
   state = this->phyLayer->finishTransmit();
 
   // set the timestamp so that we can measure when to start receiving
