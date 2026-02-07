@@ -1516,7 +1516,7 @@ int16_t LoRaWANNode::receiveClassA(uint8_t dir, const LoRaWANChannel_t* dlChanne
   RADIOLIB_ASSERT(state);
 
   // calculate the timeout of an empty packet plus scanGuard
-  RadioLibTime_t timeoutUs = toaMinUs + (this->scanGuard+1000)*1000;
+  RadioLibTime_t timeoutUs = toaMinUs + (this->scanGuard+2000)*1000;
 
   // set the radio Rx parameters
   RadioModeConfig_t modeCfg;
