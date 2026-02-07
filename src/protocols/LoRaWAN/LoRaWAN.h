@@ -61,7 +61,7 @@
 #define RADIOLIB_LORAWAN_CHANNEL_NUM_DATARATES                  (15)
 
 // recommended default settings
-#define RADIOLIB_LORAWAN_RECEIVE_DELAY_1_MS                     (4800)
+#define RADIOLIB_LORAWAN_RECEIVE_DELAY_1_MS                     (4900)
 #define RADIOLIB_LORAWAN_RECEIVE_DELAY_2_MS                     ((RADIOLIB_LORAWAN_RECEIVE_DELAY_1_MS) + 1000)
 #define RADIOLIB_LORAWAN_RX1_DR_OFFSET                          (0)
 #define RADIOLIB_LORAWAN_JOIN_ACCEPT_DELAY_1_MS                 (5000)
